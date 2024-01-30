@@ -19,4 +19,43 @@
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Button.h">
+      <Filter>Исходные файлы</Filter>
+    </ClInclude>
+    <ClInclude Include="Button2.h">
+      <Filter>Исходные файлы</Filter>
+    </ClInclude>
+    <ClInclude Include="Disp.h">
+      <Filter>Исходные файлы</Filter>
+    </ClInclude>
+    <ClInclude Include="Keypad.h">
+      <Filter>Исходные файлы</Filter>
+    </ClInclude>
+    <ClInclude Include="Strok.h">
+      <Filter>Исходные файлы</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Grey.jpg">
+      <Filter>Файлы ресурсов</Filter>
+    </Image>
+    <Image Include="Gree3.jpg">
+      <Filter>Файлы ресурсов</Filter>
+    </Image>
+    <Image Include="Gree2.jpg">
+      <Filter>Файлы ресурсов</Filter>
+    </Image>
+    <Image Include="Gree.jpg">
+      <Filter>Файлы ресурсов</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="BankGothic Md BT Medium.otf">
+      <Filter>Файлы ресурсов</Filter>
+    </Font>
+  </ItemGroup>
 </Project>

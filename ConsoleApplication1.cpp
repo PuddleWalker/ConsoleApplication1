@@ -1,11 +1,32 @@
-﻿// ConsoleApplication1.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
+﻿// Calc.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
 //
 
-#include <iostream>
-
+#include "Keypad.h"
+#include "Disp.h"
 int main()
 {
-    std::cout << "Hello World!\n";
+	RenderWindow win(VideoMode(600, 800), "Calc");
+	Event event;
+	int i = 20;
+	win.setFramerateLimit(30);
+	Butt butt(300, 400, 120, 70, Color::Magenta, "9");
+	KeyPad keyPad(5, 4, 600, 800);
+	Disp disp;
+	while (win.isOpen()) {
+		while (win.pollEvent(event))  // Цикл игровых событий: нажатие клавишь, перемещение мышки и другие.
+		{
+			if (event.type == Event::Closed) win.close(); // Закрыть окно
+			keyPad.mousePresKeyPad(win, event, disp.getStrok());
+		}
+		win.clear();
+		disp.printDisp(win);
+		keyPad.print(win);
+
+		win.display();
+	}
+
+	//переходим в nump() d KeyPad
+
 }
 
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
