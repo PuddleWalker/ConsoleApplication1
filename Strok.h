@@ -8,6 +8,7 @@ class Strok {
 	string a;
 	string b;
 	string z;
+	int prov = 0;
 	bool chitst = false;
 public:
 	Strok() {
@@ -15,8 +16,7 @@ public:
 	}
 
 	void add(string str) {
-		if (chitst) { 
-			this->str = ""; 
+		if (chitst) {
 			chitst = false;
 		}
 		if (str == "C") {//Обнуление ввода на С
@@ -26,7 +26,7 @@ public:
 			this->str = "";
 			return;
 		}
-		
+
 		if (str != "="//здесь //добавить по аналогии
 			and str != "+"// Проверка на ввод первого числа
 			and str != "-"
@@ -35,13 +35,18 @@ public:
 			and str != "^"
 			and str != "%"
 			and str != "."
-			and z.empty() ){
+			and z.empty()) {
+			if (prov == 1) {
+				a = "";
+				this->str = "";
+				prov = 0;
+			}
 			a += str;
 			this->str += str;
 		}
 		else if (str == "-" and a.empty()) {
-				a += str;
-				this->str += str;
+			a += str;
+			this->str += str;
 		}
 		else if (str == "."
 			and not z.empty()) {
@@ -54,7 +59,7 @@ public:
 		else if (str == "."
 			and not a.empty()) {
 			if (a != "-"
-			and a.find(".") == string::npos){
+				and a.find(".") == string::npos) {
 				a += str;
 				this->str += str;
 			}
@@ -77,7 +82,7 @@ public:
 				z = str;
 				this->str[this->str.length() - 1] = str[0];
 			}
-			
+
 
 		}
 		else if (str != "="//добавить по аналогии
@@ -126,7 +131,7 @@ public:
 					break;
 				case '^':
 					if (pow(c, d) == pow(e, f)) {
-						this->str = to_string(pow(c, d));
+						this->str = to_string(int(pow(c, d)));
 					}
 					else this->str = to_string(pow(e, f));
 					break;
@@ -150,11 +155,12 @@ public:
 					break;
 				}
 				//Обнуление строки посе операций
-				
-				a = "";
+
+				a = this->str;
 				b = "";
 				z = "";
 				chitst = true;
+				prov = 1;
 			}
 		}
 
